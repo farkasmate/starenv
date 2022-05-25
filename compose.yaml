@@ -1,0 +1,16 @@
+services:
+  starenv:
+    build:
+      args:
+        RUBY_VERSION: 3.0.4
+        ENV_DIRECTORY: "${ENV_DIRECTORY}"
+        ENV_NAME: "${ENV_NAME}"
+        ENV_VERSION_FILE: "${ENV_VERSION_FILE}"
+      context: .
+      labels:
+        io.whalebrew.config.environment: '["HOME"]'
+        io.whalebrew.config.missing_volumes: error
+        io.whalebrew.config.volumes: '["$${HOME}/${ENV_DIRECTORY}:$${HOME}/${ENV_DIRECTORY}:rw"]'
+        io.whalebrew.config.working_dir: "$${PWD}"
+        io.whalebrew.name: "${ENV_NAME}"
+    image: "${ENV_NAME}"
