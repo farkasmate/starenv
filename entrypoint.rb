@@ -4,9 +4,10 @@
 require 'colorize'
 require 'toys-core'
 
-GLOBAL_VERSION_FILE = File.join(Dir.home, ENV.fetch('ENV_DIRECTORY'), 'version')
+GLOBAL_VERSION_FILE = File.join(Dir.home, ENV.fetch('ENV_ROOT'), 'version')
 LOCAL_VERSION_FILE = File.join(Dir.pwd, ENV.fetch('ENV_VERSION_FILE'))
-VERSIONS_DIRECTORY = File.join(Dir.home, ENV.fetch('ENV_DIRECTORY'), 'versions')
+BIN_DIRECTORY = File.join(Dir.home, ENV.fetch('ENV_ROOT'), 'bin')
+VERSIONS_DIRECTORY = File.join(Dir.home, ENV.fetch('ENV_ROOT'), 'versions')
 
 CURRENT_VERSION_FILE = if File.exist? LOCAL_VERSION_FILE
                          LOCAL_VERSION_FILE
