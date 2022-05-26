@@ -15,6 +15,7 @@ FROM ruby:${RUBY_VERSION}-slim-bullseye as CLI
 COPY --from=BUILDER /usr/local/bundle /usr/local/bundle
 
 ADD entrypoint.rb /entrypoint.rb
+ADD install.sh /install.sh
 ADD toys/ /toys/
 
 ENTRYPOINT ["/entrypoint.rb"]

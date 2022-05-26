@@ -4,6 +4,8 @@ require 'fileutils'
 
 desc "Install a specific version of #{ENV.fetch('ENV_NAME')}"
 
+include :exec, exit_on_nonzero_status: true
+
 required_arg :version
 
 def create_wrapper(wrapper_file) # rubocop:disable Metrics/MethodLength
@@ -52,23 +54,16 @@ def create_wrapper(wrapper_file) # rubocop:disable Metrics/MethodLength
   File.chmod(0o0755, wrapper_file)
 end
 
-def mock_install
-  mock_script = <<~MOCK_SCRIPT
-    #!/bin/bash
-
-    echo "#{ENV.fetch('ENV_CLI_NAME')} version: #{version}"
-    echo "args:"
-    for arg in "${@}"
-    do
-      echo "  ${arg}"
-    done
-  MOCK_SCRIPT
-
+def install_cli(version)
   install_directory = File.join(VERSIONS_DIRECTORY, version)
-  mock_file = File.join(install_directory, ENV.fetch('ENV_CLI_NAME'))
+  cli_file = File.join(install_directory, ENV.fetch('ENV_CLI_NAME'))
   FileUtils.mkdir(install_directory)
-  File.write(mock_file, mock_script)
-  File.chmod(0o0755, mock_file)
+
+  sh '/install.sh', env: {
+    'ENV_CLI_FILE' => cli_file,
+    'ENV_CLI_NAME' => ENV.fetch('ENV_CLI_NAME'),
+    'ENV_VERSION' => version
+  }
 end
 
 def run
@@ -80,5 +75,5 @@ def run
 
   return if versions.include? version
 
-  mock_install
+  install_cli(version)
 end
