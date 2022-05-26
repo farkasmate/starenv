@@ -18,4 +18,9 @@ ADD entrypoint.rb /entrypoint.rb
 ADD install.sh /install.sh
 ADD toys/ /toys/
 
+RUN apt-get update && apt-get install -y \
+    curl \
+    unzip \
+  && rm -rf /var/lib/apt/lists/*
+
 ENTRYPOINT ["/entrypoint.rb"]
