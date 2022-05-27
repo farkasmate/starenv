@@ -10,4 +10,4 @@ services:
         io.whalebrew.config.volumes: '["$${HOME}/${ENV_ROOT}:$${HOME}/${ENV_ROOT}:rw"]'
         io.whalebrew.config.working_dir: "$${PWD}"
         io.whalebrew.name: "${ENV_NAME}"
-    image: "${ENV_NAME}"
+    image: "matefarkas/${ENV_NAME}"

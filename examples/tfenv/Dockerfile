@@ -1,3 +1,3 @@
-FROM starenv:latest
+FROM matefarkas/starenv:latest
 
 ADD install.sh /install.sh
