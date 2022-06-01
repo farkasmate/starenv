@@ -6,7 +6,10 @@ desc "Install a specific version of #{ENV.fetch('ENV_NAME')}"
 
 include :exec, exit_on_nonzero_status: true
 
-required_arg :version
+required_arg :version do
+  desc 'Version to install'
+  accept(/^\d+(\.\d+){0,2}$/)
+end
 
 def create_wrapper(wrapper_file) # rubocop:disable Metrics/MethodLength
   wrapper_script = <<~WRAPPER_SCRIPT
