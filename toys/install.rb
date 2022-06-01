@@ -38,11 +38,11 @@ def create_wrapper(wrapper_file) # rubocop:disable Metrics/MethodLength
 
       if [ "${auto_install}" != "true" ]
       then
-        echo "version '${current_version}' was requested, but not installed and #{ENV.fetch('ENV_NAME').upcase}_AUTO_INSTALL is not 'true'"
+        >&2 echo "version '${current_version}' was requested, but not installed and #{ENV.fetch('ENV_NAME').upcase}_AUTO_INSTALL is not 'true'"
         exit 2
       fi
 
-      echo "version '${current_version}' is not installed (set by ${current_version_file}). Installing now as #{ENV.fetch('ENV_NAME').upcase}_AUTO_INSTALL==true"
+      >&2 echo "version '${current_version}' is not installed (set by ${current_version_file}). Installing now as #{ENV.fetch('ENV_NAME').upcase}_AUTO_INSTALL==true"
       "${env_name}" install "${current_version}"
     fi
 
