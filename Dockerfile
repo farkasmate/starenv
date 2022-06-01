@@ -14,13 +14,13 @@ FROM ruby:${RUBY_VERSION}-slim-bullseye as CLI
 
 COPY --from=BUILDER /usr/local/bundle /usr/local/bundle
 
-ADD entrypoint.rb /entrypoint.rb
-ADD install.sh /install.sh
-ADD toys/ /toys/
-
 RUN apt-get update && apt-get install -y \
     curl \
     unzip \
   && rm -rf /var/lib/apt/lists/*
+
+ADD entrypoint.rb /entrypoint.rb
+ADD install.sh /install.sh
+ADD toys/ /toys/
 
 ENTRYPOINT ["/entrypoint.rb"]

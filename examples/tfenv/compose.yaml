@@ -6,4 +6,4 @@ services:
         io.whalebrew.config.environment: '["ENV_CLI_NAME=${ENV_CLI_NAME}", "ENV_NAME=${ENV_NAME}", "ENV_ROOT=${ENV_ROOT}", "ENV_VERSION_FILE=${ENV_VERSION_FILE}", "HOME"]'
         io.whalebrew.config.volumes: '["$${HOME}/${ENV_ROOT}:$${HOME}/${ENV_ROOT}:rw"]'
         io.whalebrew.name: "${ENV_NAME}"
-    image: "${ENV_NAME}"
+    image: "matefarkas/${ENV_NAME}"
