@@ -73,7 +73,7 @@ def run
   wrapper_file = File.join(BIN_DIRECTORY, ENV.fetch('ENV_CLI_NAME'))
   create_wrapper(wrapper_file)
 
-  FileUtils.mkdir_p(VERSIONS_DIRECTORY) unless File.exist? VERSIONS_DIRECTORY
+  FileUtils.mkdir_p(VERSIONS_DIRECTORY)
   versions = Dir[File.join(VERSIONS_DIRECTORY, '*')].collect { |version_dir| File.basename(version_dir) }
 
   return if versions.include? version

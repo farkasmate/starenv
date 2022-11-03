@@ -5,7 +5,7 @@ require 'fileutils'
 desc 'List all installed versions'
 
 def run
-  FileUtils.mkdir_p(VERSIONS_DIRECTORY) unless File.exist? VERSIONS_DIRECTORY
+  FileUtils.mkdir_p(VERSIONS_DIRECTORY)
 
   current_version = File.read(CURRENT_VERSION_FILE).chomp unless CURRENT_VERSION_FILE.nil?
   default_set = false
