@@ -1,8 +1,8 @@
-# EXAMPLE - kubeenv
+# EXAMPLE - skaffoldenv
 
-[Kubectl][kubectl] version manager made using [starenv][].
+[Skaffold][skaffold] version manager made using [starenv][].
 
-[kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
+[skaffold]: https://skaffold.dev/
 [starenv]: https://github.com/farkasmate/starenv
 
 ## Install
@@ -10,25 +10,25 @@
 1. Install with [whalebrew][].
 
 ```shell
-whalebrew install matefarkas/kubeenv:latest
+whalebrew install matefarkas/skaffoldenv:latest
 ```
 
 2. Create tool directory.
 
 ```shell
-mkdir ~/.kubectl
+mkdir ~/.skaffold
 ```
 
 3. Add tool to `PATH`.
 
 ```shell
-export PATH="~/.kubectl/bin:${PATH}"
+export PATH="~/.skaffold/bin:${PATH}"
 ```
 
 4. Optionally, enable auto-install.
 
 ```shell
-export KUBEENV_AUTO_INSTALL=true
+export SKAFFOLDENV_AUTO_INSTALL=true
 ```
 
 [whalebrew]: https://github.com/whalebrew/whalebrew
@@ -36,20 +36,20 @@ export KUBEENV_AUTO_INSTALL=true
 ## Usage
 
 ```text
-$ kubeenv --help
+$ skaffoldenv --help
 NAME
-    kubeenv
+    skaffoldenv
 
 SYNOPSIS
-    kubeenv TOOL [ARGUMENTS...]
-    kubeenv [-h | --help]
+    skaffoldenv TOOL [ARGUMENTS...]
+    skaffoldenv [-h | --help]
 
 COMMON FLAGS
     -h, --help
         Display help for this tool
 
 TOOLS
-    install - Install a specific version of kubeenv
+    install - Install a specific version of skaffoldenv
     list - List all installed versions
     use - Switch a version to use
 ```

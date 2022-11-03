@@ -1,8 +1,8 @@
-# EXAMPLE - kubeenv
+# EXAMPLE - kindenv
 
-[Kubectl][kubectl] version manager made using [starenv][].
+[Kind][kind] version manager made using [starenv][].
 
-[kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
+[kind]: https://kind.sigs.k8s.io/
 [starenv]: https://github.com/farkasmate/starenv
 
 ## Install
@@ -10,25 +10,25 @@
 1. Install with [whalebrew][].
 
 ```shell
-whalebrew install matefarkas/kubeenv:latest
+whalebrew install matefarkas/kindenv:latest
 ```
 
 2. Create tool directory.
 
 ```shell
-mkdir ~/.kubectl
+mkdir ~/.kind
 ```
 
 3. Add tool to `PATH`.
 
 ```shell
-export PATH="~/.kubectl/bin:${PATH}"
+export PATH="~/.kind/bin:${PATH}"
 ```
 
 4. Optionally, enable auto-install.
 
 ```shell
-export KUBEENV_AUTO_INSTALL=true
+export KINDENV_AUTO_INSTALL=true
 ```
 
 [whalebrew]: https://github.com/whalebrew/whalebrew
@@ -36,20 +36,20 @@ export KUBEENV_AUTO_INSTALL=true
 ## Usage
 
 ```text
-$ kubeenv --help
+$ kindenv --help
 NAME
-    kubeenv
+    kindenv
 
 SYNOPSIS
-    kubeenv TOOL [ARGUMENTS...]
-    kubeenv [-h | --help]
+    kindenv TOOL [ARGUMENTS...]
+    kindenv [-h | --help]
 
 COMMON FLAGS
     -h, --help
         Display help for this tool
 
 TOOLS
-    install - Install a specific version of kubeenv
+    install - Install a specific version of kindenv
     list - List all installed versions
     use - Switch a version to use
 ```
