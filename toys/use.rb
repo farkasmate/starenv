@@ -4,7 +4,6 @@ desc 'Switch a version to use'
 
 flag :global do
   desc 'Set global version'
-  accept TrueClass
   default false
 end
 

@@ -22,3 +22,7 @@ Installing versions with `kubeenv install` is handy. Selecting the right version
 Check out the [examples][].
 
 [examples]: ./examples
+
+## Known issues
+
+- The tool is not checking parent directories for version files as parent directories are not generally mounted in the tool container.
